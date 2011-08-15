@@ -55,8 +55,6 @@ But the best way to learn is to checkout the demos.
 
 1. MIT license, so anyone can use it, modify it, and add it to their own application.
 
-2. "source" folder contains the Visual Studiio Solution files if you fancy modifying the code
-
 
 
 ## To Do
