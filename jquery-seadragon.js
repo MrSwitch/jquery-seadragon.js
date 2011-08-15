@@ -3,7 +3,6 @@
  * Requires JQuery
  * @author Andrew Dodson
  */
-var viewer ;
 $.fn.seadragon = (function(url){
 	
 	if(!"Seadragon" in window ){
@@ -23,16 +22,18 @@ $.fn.seadragon = (function(url){
 		else{
 			console.log(Array.prototype.slice.call(arguments)); // IE
 		}
+		
+		// we print out to a div for debugging on iOS
 		var log = document.getElementById("log");
 		if(log){
 			log.innerHTML = Array.prototype.slice.call(arguments) + "<br />" + log.innerHTML; 
 		}
 	}
 
-	
+
 	$(this).each(function(){
 
-		viewer = new Seadragon.Viewer(this);
+		var viewer = new Seadragon.Viewer(this);
 		
 		var maxZoomOut;
 
