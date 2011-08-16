@@ -13,7 +13,6 @@ $.fn.seadragon = (function(url){
 		}
 	}
 
-
 	function log() {
 		if (typeof(console) === 'undefined'||typeof(console.log) === 'undefined') return;
 		if (typeof console.log === 'function') {
@@ -30,18 +29,12 @@ $.fn.seadragon = (function(url){
 		}
 	}
 
-
-	$(this).each(function(){
+	return $(this).each(function(){
 
 		var viewer = new Seadragon.Viewer(this);
-		
-		var maxZoomOut;
 
 		$.getJSON("http://api.zoom.it/v1/content/?url="+encodeURIComponent(url)+"&callback=?", function(r){
 			viewer.openDzi(r.content.dzi);
-			viewer.addEventListener("open", function(){
-				maxZoomOut = viewer.viewport.getZoom();
-			});
 		});
 
 		function coord(e) {
@@ -142,6 +135,7 @@ $.fn.seadragon = (function(url){
 			viewer.viewport.applyConstraints();
 		});
 	});
+	
 });
 
 
