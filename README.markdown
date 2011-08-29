@@ -4,13 +4,13 @@ Its a jquery plugin which wraps the Seadragon API and adds Touch Events to make 
 
 But the best way to learn is to checkout the demos.
 
-*Demo* http://mrswitch.github.com/jquery-seadragon/
+*Demo* http://mrswitch.github.com/jquery-seadragon.js/
 
 
 
 # How to use Seadragon - It you want you can just download the code
 
-1. Upload your massive image to your server, like the one i have at http://mrswitch.github.com/jquery-seadragon/bigimage.jpg
+1. Upload your massive image to your server, like the one i have at http://mrswitch.github.com/jquery-seadragon.js/bigimage.jpg
 
 2. Go to http://zoom.it/ and enter the path of this image.
 
@@ -45,7 +45,7 @@ But the best way to learn is to checkout the demos.
 		<h1>jQuery-Seadragon Plugin</h1>
 		<div id="container"></div>
 	<script>
-			$("#container").seadragon("http://mrswitch.github.com/jquery-seadragon/bigimage.jpg");
+			$("#container").seadragon("http://mrswitch.github.com/jquery-seadragon.js/bigimage.jpg");
 	</script>
 	</body>
 	</html>
