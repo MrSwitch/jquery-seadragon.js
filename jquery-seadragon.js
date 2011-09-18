@@ -71,14 +71,15 @@ $.fn.seadragon = (function(url){
 			var p = coord(e.originalEvent);
 			p.start = true;
 			p.scale = 1;
-			$(this).data(p);
-			log("touchstart", p.clientX, p.clientY);
+            if(e.originalEvent.pointerType === 4) return;
+            else if(e.originalEvent.pointerType !== undefined) e.originalEvent.preventMouseEvent();
+
+			$(this).data(p);			
 	
 			e.preventDefault();
 			e.stopPropagation();
 		})
-		.bind('touchmove', function(e){
-			log("touchmove" );
+		.bind('touchmove MSGestureChange', function(e){			
 			var p = coord(e.originalEvent),
 				d = $(this).data(),
 				v = viewer.viewport,
@@ -88,8 +89,8 @@ $.fn.seadragon = (function(url){
 				dx = p.clientX - d.clientX,
 				dy = p.clientY - d.clientY,
 				dX = (b.width/s.x);
-			log("touchmove", p.length, dX );
-
+			if(e.originalEvent.pointerType === 4) return;
+            else if(e.originalEvent.pointerType !== undefined) e.originalEvent.preventMouseEvent();
 			// SCALE
 			if(e.originalEvent.scale&&e.originalEvent.scale!==1){
 
@@ -118,17 +119,16 @@ $.fn.seadragon = (function(url){
 			e.preventDefault();
 			e.stopPropagation();
 		})
-		.bind("touchend", function(e){
-
-			log("touchend",e.originalEvent.changedTouches.length);
-			
+		.bind("touchend MSPointerUp", function(e){
 			var p = coord(e.originalEvent),
 				d = $(this).data(),
 				c = viewer.viewport.getCenter(),
 				b = viewer.viewport.getBounds(),
 				dX = (b.width/viewer.viewport.getContainerSize().x);
-
-
+            
+            if(e.originalEvent.pointerType === 4) return;
+            else if(e.originalEvent.pointerType !== undefined) e.originalEvent.preventMouseEvent();
+            
 			/**
 			 * We check whether the start event was the last event fired.
 			 * And then we can treat this as a mouse "click"
@@ -143,5 +143,3 @@ $.fn.seadragon = (function(url){
 		});
 	});
 });
-
-

@@ -1,6 +1,7 @@
 ﻿        html {
             font-family: Verdana, sans-serif;
             overflow:hidden;
+            -ms-content-zooming: none;
         }
         body{
 			margin:0;
@@ -26,3 +27,8 @@
             bottom:0;
             top:0;
         }
+        
+        .disablePanZoom {
+  overflow: hidden; /* Disables panning */
+  -ms-content-zooming: none; /* Disables zooming */
+}
